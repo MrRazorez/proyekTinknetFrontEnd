@@ -1,4 +1,4 @@
 export default function Logout() {
-    localStorage.setItem("token", "");
+    localStorage.clear();
     window.location.replace("login");
 }
