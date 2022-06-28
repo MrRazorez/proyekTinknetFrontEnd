@@ -1,24 +1,20 @@
-import "./App.css";
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Decision from "./components/checkTokens";
-import Home from "./pages/home";
-import Login from "./pages/login";
-import LoginFailed from "./components/failed";
-import LoginEmpty from "./components/confirmation";
+import React from "react";
+import Topbar from "./components/topbar/Topbar";
+import Sidebar from "./components/sidebar/Sidebar";
+import {BrowserRouter as Router, Routes, Route, } from "react-router-dom"
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Decision/>} />
-        <Route path="/home" element={<Home/>} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/failed" element={<LoginFailed/>} />
-        <Route path="/confirmed" element={<LoginEmpty/>} />
-      </Routes>
-    </BrowserRouter>
-  );
+    return (
+      <Router>
+        <Topbar/>
+        <div className="container">
+          <Sidebar/>
+          <Routes>
+                       
+          </Routes>
+        </div>
+     </Router> 
+    )
 }
-
+  
 export default App;
