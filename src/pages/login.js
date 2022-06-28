@@ -28,7 +28,7 @@ export default function Login() {
             {
                 (localStorage.getItem("token"))? window.location.replace("/"): 
             <div className="ui middle aligned center aligned grid" style={{ height: "100vh"}}>
-                <div className="column" style={{ maxWidth: 450 }}>
+                <div className="column" style={{ maxWidth: 400 }}>
                     <form onSubmit={handleSubmit(runValid)} className="ui large form">
                         <img src={Logo} alt="Logo Tinknet" style={{ padding: 10, width: 100 }}/>
                         <div className="ui segment" style={{ padding: 40 }}>
