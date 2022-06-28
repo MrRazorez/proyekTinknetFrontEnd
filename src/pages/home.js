@@ -2,6 +2,7 @@ import "../components/semantic-ui/components/button.css";
 
 import React from "react";
 import DesicionRole from "../components/roleTinknet";
+import TopBar from "../components/homeComp/topbar";
 import Boss from "./roles/boss";
 import AdminBarang from "./roles/adminBarang";
 import AdminRegister from "./roles/adminRegister";
@@ -13,6 +14,7 @@ export default function Home() {
 
     return (
         <body>
+            <TopBar/>
             {
                 !(localStorage.getItem("token"))? window.location.replace("login"):
                 (localStorage.getItem("token") === "jangan_login")?
