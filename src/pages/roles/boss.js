@@ -1,12 +1,16 @@
 import React from "react";
+import SideBarStaff from "..//../components/homeComp/SidebarStaff";
 import TableOfficeTinknet from "../../components/tableOffice";
-import Logout from "..//../components/logout";
 
 export default function Boss() {
     return (
-        <div>
-            <TableOfficeTinknet/>
-            <button className="ui submit black button" onClick={Logout}>Keluar</button>
+        <div className="side">
+            <SideBarStaff/>
+            <div className="pages">
+                <div>
+                    <TableOfficeTinknet/>
+                </div>
+            </div>
         </div>
     );
 }

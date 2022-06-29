@@ -1,4 +1,4 @@
-import "./Topbar.css";
+import "./topbar.css";
 
 import React from "react";
 import Logo from "..//../components/logo/tinknet.png";

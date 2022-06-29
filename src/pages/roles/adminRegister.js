@@ -1,12 +1,16 @@
 import React from "react";
+import SideBarAdminRegister from "..//../components/homeComp/SidebarAdminRegister";
 import TableOfficeTinknet from "../../components/tableOffice";
-import Logout from "..//../components/logout";
 
 export default function AdminRegister() {
     return (
-        <div>
-            <TableOfficeTinknet/>
-            <button className="ui submit black button" onClick={Logout}>Keluar</button>
+        <div className="side">
+            <SideBarAdminRegister/>
+            <div className="pages">
+                <div>
+                    <TableOfficeTinknet/>
+                </div>
+            </div>
         </div>
     );
 }

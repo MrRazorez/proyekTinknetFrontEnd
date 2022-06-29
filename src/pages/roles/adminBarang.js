@@ -1,12 +1,16 @@
 import React from "react";
+import SideBarAdminBarang from "..//../components/homeComp/SidebarAdminBarang";
 import TableOfficeTinknet from "../../components/tableOffice";
-import Logout from "..//../components/logout";
 
 export default function AdminBarang() {
     return (
-        <div className="TableList">
-            <TableOfficeTinknet/>
-            <button className="ui submit black button" onClick={Logout}>Keluar</button>
+        <div className="side">
+            <SideBarAdminBarang/>
+            <div className="pages">
+                <div className="TableList">
+                    <TableOfficeTinknet/>
+                </div>
+            </div>
         </div>
     );
 }

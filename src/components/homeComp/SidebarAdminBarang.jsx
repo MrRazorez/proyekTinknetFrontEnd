@@ -7,7 +7,9 @@ import EditInventory from "..//../components/logo/edit-product.png";
 import EditLocation from "..//../components/logo/rotate.png";
 import History from "..//../components/logo/history.png";
 import AccountInfo from "..//../components/logo/user.png";
-import Logout from "..//../components/logo/power-off.png";
+import PowerOut from "..//../components/logo/power-off.png";
+
+import Logout from "../logout";
 
 export default function sidebar() {
   return (
@@ -27,7 +29,7 @@ export default function sidebar() {
                     </li>
                     <li className="sidebarListItem">
                     <img src={Inventory} alt="" className="sidebarIcon" />
-                    Office
+                    Kantor
                     </li>
                     <li className="sidebarListItem">
                     <img src={Inventory} alt="" className="sidebarIcon" />
@@ -76,10 +78,10 @@ export default function sidebar() {
               <img src={AccountInfo} alt="" className="sidebarIcon" />
                 Informasi Akun
               </li>
-              <li className="sidebarListItem">
-              <img src={Logout} alt="" className="sidebarIcon" />
+              <li onClick={Logout} className="sidebarListItem">
+              <img src={PowerOut} alt="" className="sidebarIcon" />
                 Keluar
-              </li>              
+              </li>
             </ul>
           </div>
         </div>

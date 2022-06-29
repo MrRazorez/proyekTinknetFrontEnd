@@ -1,24 +1,18 @@
 import React from "react";
 import DesicionRole from "../components/roleTinknet";
-import TopBar from "../components/homeComp/Topbar";
-import SideBarAdminBarang from "../components/homeComp/SidebarAdminBarang";
-import SideBarAdminRegister from "../components/homeComp/SidebarAdminRegister";
-import SideBarStaff from "../components/homeComp/SidebarStaff";
+import TopBar from "../components/homeComp/topbar";
 import Boss from "./roles/boss";
 import AdminBarang from "./roles/adminBarang";
 import AdminRegister from "./roles/adminRegister";
 import Staff from "./roles/staff";
-import "./home.css"
+import "./home.css";
+
 export default function Home() {
     const dataRole = DesicionRole();
-    console.log(dataRole);
 
     return (
         <div className="top">
             <TopBar/>
-            <div className="side">
-            <SideBarAdminBarang/>
-                <div className="pages">
                 {
                     !(localStorage.getItem("token"))? window.location.replace("login"):
                     (localStorage.getItem("token") === "jangan_login")?
@@ -31,8 +25,6 @@ export default function Home() {
                     <AdminRegister/>:
                     <Staff/>
                 }
-                </div>
-            </div>
         </div>
     );
 }
