@@ -1,5 +1,3 @@
-import "./sidebar.css";
-
 import React from "react";
 import TableOfficeTinknet from "../../components/tableOffice";
 import Logout from "..//../components/logout";
