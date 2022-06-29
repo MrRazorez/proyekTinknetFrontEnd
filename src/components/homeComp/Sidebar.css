@@ -1,14 +1,14 @@
 .sidebar {
-    flex: 1;
-    height: 100%;
     background-color: #fbfbff;
-    position: sticky;
-    top: 50px;
-  }
+    position: fixed;
+    top: 85px;
+    height:100%;
+    overflow: scroll;   
+}
   
   .sidebarWrapper {
     padding: 20px;
-    color: #555;
+    height: 100%;
   }
   
   .sidebarMenu {
@@ -26,7 +26,7 @@
   }
   
   .sidebarListItem {
-    padding: 2px;
+    padding: 3px;
     cursor: pointer;
     display: flex;
     align-items: center;

@@ -1,7 +1,9 @@
 import React from "react";
 import DesicionRole from "../components/roleTinknet";
-import TopBar from "../components/homeComp/topbar";
-import SideBar from "../components/homeComp/Sidebar";
+import TopBar from "../components/homeComp/Topbar";
+import SideBarAdminBarang from "../components/homeComp/SidebarAdminBarang";
+import SideBarAdminRegister from "../components/homeComp/SidebarAdminRegister";
+import SideBarStaff from "../components/homeComp/SidebarStaff";
 import Boss from "./roles/boss";
 import AdminBarang from "./roles/adminBarang";
 import AdminRegister from "./roles/adminRegister";
@@ -15,7 +17,7 @@ export default function Home() {
         <div className="top">
             <TopBar/>
             <div className="side">
-            <SideBar/>
+            <SideBarAdminBarang/>
                 <div className="pages">
                 {
                     !(localStorage.getItem("token"))? window.location.replace("login"):
