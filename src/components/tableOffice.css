@@ -1,0 +1,8 @@
+.tableStyle{
+    width: 3px 6px 3px;
+    box-shadow: #ccc;
+}
+
+table, th, td {
+    border: 1px solid;
+  }

@@ -4,7 +4,7 @@ import Logout from "..//../components/logout";
 
 export default function AdminBarang() {
     return (
-        <div>
+        <div className="TableList">
             <TableOfficeTinknet/>
             <button className="ui submit black button" onClick={Logout}>Keluar</button>
         </div>

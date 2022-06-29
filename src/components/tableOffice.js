@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../components/semantic-UI/table.css";
 
 export default function TableOfficeTinknet() {
     const [dataAPI, setDataAPI] = useState([]);
@@ -42,5 +43,6 @@ export default function TableOfficeTinknet() {
                 })}
             </tbody>
         </table>
+       
     )
 }
