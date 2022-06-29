@@ -1,5 +1,3 @@
-import "../components/semantic-ui/components/button.css";
-
 import React from "react";
 import DesicionRole from "../components/roleTinknet";
 import TopBar from "../components/homeComp/topbar";

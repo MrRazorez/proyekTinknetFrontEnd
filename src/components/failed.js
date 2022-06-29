@@ -1,5 +1,3 @@
-import "../components/semantic-ui/components/grid.css";
-
 import React, { useEffect, useState } from "react";
 
 export default function LoginFailed() {

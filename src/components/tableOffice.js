@@ -1,5 +1,3 @@
-import "./semantic-ui/components/table.css"
-
 import { useEffect, useState } from "react";
 
 export default function TableOfficeTinknet() {
