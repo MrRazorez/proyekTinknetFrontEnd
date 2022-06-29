@@ -2,6 +2,11 @@
     display: flex;
 }
 
+.side{
+ flex: 1;
+}
+
 .pages{
     flex: 4;
+    margin-left: 254px;
 }
