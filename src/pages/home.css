@@ -1,0 +1,7 @@
+.side{
+    display: flex;
+}
+
+.pages{
+    flex: 4;
+}

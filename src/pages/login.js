@@ -1,7 +1,14 @@
 import React from "react";
+import "./login.css"
 import { useForm } from "react-hook-form";
 import Logo from "../components/logo/tinknet.png";
 import ValidAccount from "../components/validation";
+import "../components/semantic-UI/icon.css";
+import "../components/semantic-UI/button.css";
+import "../components/semantic-UI/segment.css"
+import "../components/semantic-UI/grid.css"
+import "../components/semantic-UI/form.css"
+import "../components/semantic-UI/input.css"
 
 export default function Login() {
     let aturField = 10;
@@ -18,9 +25,10 @@ export default function Login() {
 
     return (
         <body>
+            <div className="Background">
             {
-                (localStorage.getItem("token"))? window.location.replace("/"): 
-            <div className="ui middle aligned center aligned grid" style={{ height: "100vh"}}>
+                (localStorage.getItem("token"))? window.location.replace("/"):
+            <div className="ui middle aligned center aligned grid" style={{ height: "95vh", width:"100%" }}>
                 <div className="column" style={{ maxWidth: 400 }}>
                     <form onSubmit={handleSubmit(runValid)} className="ui large form">
                         <img src={Logo} alt="Logo Tinknet" style={{ padding: 10, width: 100 }}/>
@@ -44,7 +52,9 @@ export default function Login() {
                     </form>
                 </div>
             </div>
+            
             }
+            </div>
         </body>
     );
 }
