@@ -27,7 +27,7 @@ export default function Login() {
         <body>
             <div className="Background">
             {
-                (localStorage.getItem("token"))? window.location.replace("/"):
+                (localStorage.getItem("token"))? window.location.replace("home"):
             <div className="ui middle aligned center aligned grid" style={{ height: "95vh", width:"100%" }}>
                 <div className="column" style={{ maxWidth: 400 }}>
                     <form onSubmit={handleSubmit(runValid)} className="ui large form">

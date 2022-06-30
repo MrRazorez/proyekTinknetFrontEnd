@@ -10,21 +10,33 @@ import "./home.css";
 export default function Home() {
     const dataRole = DesicionRole();
 
+    const dataConfirm = () => {
+        window.confirm(localStorage.getItem("msg"));
+        localStorage.removeItem("msg")
+    }
+
     return (
-        <div className="top">
-            <TopBar/>
-                {
-                    !(localStorage.getItem("token"))? window.location.replace("login"):
-                    (localStorage.getItem("token") === "jangan_login")?
-                    window.location.replace("failed"):
-                    (localStorage.getItem("token") === dataRole[0]["token"])?
-                    <Boss/>:
-                    (localStorage.getItem("token") === dataRole[1]["token"])?
-                    <AdminBarang/>:
-                    (localStorage.getItem("token") === dataRole[2]["token"])?
-                    <AdminRegister/>:
-                    <Staff/>
-                }
-        </div>
+        <body>
+            {
+                (localStorage.getItem("msg"))?
+                dataConfirm():
+                localStorage.removeItem("msg")
+            }
+            <div className="top">
+                <TopBar/>
+                    {
+                        !(localStorage.getItem("token"))? window.location.replace("login"):
+                        (localStorage.getItem("token") === "jangan_login")?
+                        window.location.replace("failed"):
+                        (localStorage.getItem("token") === dataRole[0]["token"])?
+                        <Boss/>:
+                        (localStorage.getItem("token") === dataRole[1]["token"])?
+                        <AdminBarang/>:
+                        (localStorage.getItem("token") === dataRole[2]["token"])?
+                        <AdminRegister/>:
+                        <Staff/>
+                    }
+            </div>
+        </body>
     );
 }
