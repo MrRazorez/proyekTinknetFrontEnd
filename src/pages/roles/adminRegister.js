@@ -1,6 +1,6 @@
 import React from "react";
 import SideBarAdminRegister from "..//../components/homeComp/SidebarAdminRegister";
-import TableOfficeTinknet from "../../components/tableOffice";
+import TableTinknet from "../../components/showTable";
 
 export default function AdminRegister() {
     return (
@@ -8,7 +8,7 @@ export default function AdminRegister() {
             <SideBarAdminRegister/>
             <div className="pages">
                 <div>
-                    <TableOfficeTinknet/>
+                    <TableTinknet/>
                 </div>
             </div>
         </div>

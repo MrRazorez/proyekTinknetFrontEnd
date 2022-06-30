@@ -1,6 +1,6 @@
 import React from "react";
 import SideBarAdminBarang from "..//../components/homeComp/SidebarAdminBarang";
-import TableOfficeTinknet from "../../components/tableOffice";
+import TableTinknet from "../../components/showTable";
 
 export default function AdminBarang() {
     return (
@@ -8,7 +8,7 @@ export default function AdminBarang() {
             <SideBarAdminBarang/>
             <div className="pages">
                 <div className="TableList">
-                    <TableOfficeTinknet/>
+                    <TableTinknet/>
                 </div>
             </div>
         </div>

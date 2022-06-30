@@ -1,6 +1,6 @@
 import React from "react";
 import SideBarStaff from "..//../components/homeComp/SidebarStaff";
-import TableOfficeTinknet from "../../components/tableOffice";
+import TableTinknet from "../../components/showTable";
 
 export default function Staff() {
     return (
@@ -8,7 +8,7 @@ export default function Staff() {
             <SideBarStaff/>
             <div className="pages">
                 <div>
-                    <TableOfficeTinknet/>
+                    <TableTinknet/>
                 </div>
             </div>
         </div>
