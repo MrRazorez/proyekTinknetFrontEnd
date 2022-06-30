@@ -37,7 +37,7 @@
   }
   
   .newInventoryButton{
-      width: 250px;
+      width: 300px;
       border: none;
       padding: 7px 10px;
       font-weight: 600;
@@ -45,5 +45,5 @@
       margin-top: 30px;
       cursor: pointer;
       margin-bottom: 20px;
-
+      margin-left: 35%;
 }

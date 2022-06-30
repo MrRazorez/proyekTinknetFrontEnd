@@ -12,7 +12,8 @@ export default function NewUser() {
             <div className="pages">
                 <div className="newInventory">
                 <h1 className="newInventoryTitle">Tambah Barang</h1>
-                <form className="newInventoryForm">
+                <form>
+                    <div className="newInventoryForm">
                     <div className="newInventoryItem">
                     <label>Nama Perangkat</label>
                     <input type="text" placeholder="Masukkan Nama Perangkat..." />
@@ -36,6 +37,7 @@ export default function NewUser() {
                     <div className="newInventoryItem">
                     <label>Lokasi</label>
                     <input type="text" placeholder="Masukkan Lokasi Perangkat..." />
+                    </div>
                     </div>
                     <div className="newInventoryButton">
                     <button className="ui fluid large submit black button">Tambah</button>
