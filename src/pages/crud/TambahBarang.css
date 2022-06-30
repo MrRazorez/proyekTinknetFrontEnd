@@ -1,0 +1,54 @@
+.newInventory {
+    flex: 4;    
+}
+
+.newInventoryTitle{
+    display: flex;
+    margin-top: 30px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+.newInventoryForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+  
+  .newInventoryItem {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 20px;
+  }
+  
+  .newInventoryItem > label {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
+  }
+  
+  .newInventoryItem > input {
+    height: 20px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+  }
+  
+  .newInventoryButton{
+      width: 250px;
+      border: none;
+      padding: 7px 10px;
+      font-weight: 600;
+      border-radius: 5px;
+      margin-top: 30px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      
+  }
