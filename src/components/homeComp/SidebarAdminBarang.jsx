@@ -27,15 +27,6 @@ export default function sidebar() {
             </ul>
           </div>
           <div className="sidebarMenu">
-            <h3 className="sidebarTitle">Riwayat</h3>
-            <ul className="sidebarList">
-              <li className="sidebarListItem">
-              <img src={History} alt="" className="sidebarIcon" />
-                Lihat Riwayat
-              </li>              
-            </ul>
-          </div>
-          <div className="sidebarMenu">
             <h3 className="sidebarTitle">Akun</h3>
             <ul className="sidebarList">
               <li className="sidebarListItem">
