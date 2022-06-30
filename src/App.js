@@ -7,6 +7,8 @@ import Login from "./pages/login";
 import LoginFailed from "./components/failed";
 import LoginEmpty from "./components/confirmation";
 import AddInventory from "./pages/crud/TambahBarang"
+import ListInventory from "./pages/crud/ListEditBarang"
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path="/failed" element={<LoginFailed/>} />
         <Route path="/confirmed" element={<LoginEmpty/>} />
         <Route path="/addbarang" element={<AddInventory/>} />
+        <Route path="/listeditbarang" element={<ListInventory/>} />
       </Routes>
     </BrowserRouter>
   );
