@@ -6,8 +6,9 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import LoginFailed from "./components/failed";
 import LoginEmpty from "./components/confirmation";
-import AddInventory from "./pages/crud/TambahBarang"
-import ListInventory from "./pages/crud/ListEditBarang"
+import AddInventory from "./pages/crud/TambahBarang";
+import ListInventory from "./pages/crud/ListEditBarang";
+import EditInventory from "./pages/crud/UpdateBarang";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/confirmed" element={<LoginEmpty/>} />
         <Route path="/addbarang" element={<AddInventory/>} />
         <Route path="/listeditbarang" element={<ListInventory/>} />
+        <Route path="/editbarang/:id" element={<EditInventory/>} />
       </Routes>
     </BrowserRouter>
   );

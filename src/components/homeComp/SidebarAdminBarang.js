@@ -10,11 +10,15 @@ import Logout from "../logout";
 
 export default function sidebar() {
   const rumah = () => {
-    window.location.replace("home")
+    window.location.replace("/home")
   }
 
   const barangAdd = () => {
-    window.location.replace("addbarang")
+    window.location.replace("/addbarang")
+  }
+
+  const barangEdit = () => {
+    window.location.replace("/listeditbarang")
   }
 
   return (
@@ -37,9 +41,9 @@ export default function sidebar() {
                 <img src={AddInventory} alt="" className="sidebarIcon" />
                   Tambah
                 </li>
-                <li className="sidebarListItem">
+                <li onClick={barangEdit} className="sidebarListItem">
                 <img src={EditInventory} alt="" className="sidebarIcon" />
-                  Update
+                  Sunting
                 </li>            
             </ul>
           </div>

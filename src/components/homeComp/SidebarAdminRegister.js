@@ -10,7 +10,7 @@ import Logout from "../logout";
 
 export default function sidebar() {
   const rumah = () => {
-    window.location.replace("home")
+    window.location.replace("/home")
   }
   
   return (
@@ -35,7 +35,7 @@ export default function sidebar() {
                 </li>
                 <li className="sidebarListItem">
                 <img src={EditStaff} alt="" className="sidebarIcon" />
-                  Update
+                  Sunting
                 </li>             
             </ul>
           </div>

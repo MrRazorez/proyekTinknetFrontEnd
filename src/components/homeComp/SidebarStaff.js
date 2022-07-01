@@ -8,7 +8,7 @@ import Logout from "../logout";
 
 export default function sidebar() {
   const rumah = () => {
-    window.location.replace("home")
+    window.location.replace("/home")
   }
   
   return (

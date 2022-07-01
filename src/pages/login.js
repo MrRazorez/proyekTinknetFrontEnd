@@ -1,6 +1,6 @@
 import React from "react";
 import "./login.css"
-import { useForm } from "react-hook-form";
+import { useState } from "react";
 import Logo from "../components/logo/tinknet.png";
 import ValidAccount from "../components/validation";
 import "../components/semantic-UI/icon.css";
@@ -12,11 +12,13 @@ import "../components/semantic-UI/input.css"
 
 export default function Login() {
     let aturField = 10;
-    const {register, handleSubmit} = useForm();
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
-    const runValid = (data) => {
-        if (!(data["username"] === "") && !(data["password"] === "")) {
-            ValidAccount(data);
+    const runValid = async (data) => {
+        data.preventDefault();
+        if (!(username === "") && !(password === "")) {
+            ValidAccount(username, password);
         }
         else {
             window.location.replace("confirmed");
@@ -30,19 +32,29 @@ export default function Login() {
                 (localStorage.getItem("token"))? window.location.replace("home"):
             <div className="ui middle aligned center aligned grid" style={{ height: "95vh", width:"100%" }}>
                 <div className="column" style={{ maxWidth: 400 }}>
-                    <form onSubmit={handleSubmit(runValid)} className="ui large form">
+                    <form onSubmit={runValid} className="ui large form">
                         <img src={Logo} alt="Logo Tinknet" style={{ padding: 10, width: 100 }}/>
                         <div className="ui segment" style={{ padding: 40 }}>
                             <div className="field" style={{ padding: aturField }}>
                                 <div className="ui left icon input">
                                     <i className="user icon"/>
-                                    <input type="text" placeholder="Masukkan Nama Akun" {...register("username")}/>
+                                    <input
+                                        type="text"
+                                        placeholder="Masukkan Nama Akun"
+                                        value={ username }
+                                        onChange={(data) => setUsername(data.target.value)}
+                                    />
                                 </div>
                             </div>
                             <div className="field" style={{ padding: aturField }}>
                                 <div className="ui left icon input">
                                     <i className="lock icon"/>
-                                    <input type="password" placeholder="Masukkan Kata Sandi" {...register("password")}/>
+                                    <input
+                                        type="password"
+                                        placeholder="Masukkan Kata Sandi"
+                                        value={ password }
+                                        onChange={(data) => setPassword(data.target.value)}
+                                    />
                                 </div>
                             </div>
                             <div className="field" style={{ padding: aturField }}>

@@ -1,4 +1,4 @@
 export default function Logout() {
     localStorage.clear();
-    window.location.replace("login");
+    window.location.replace("/login");
 }

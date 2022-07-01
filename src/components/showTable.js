@@ -1,37 +1,24 @@
-import { useEffect, useState } from "react";
 import "../components/semantic-UI/table.css";
 import "./semantic-UI/icon.css"
 import "./semantic-UI/input.css"
 import "./showTable.css"
 
+import AmbilData from "./fetchData";
+
 export default function TableTinknet() {
-    const [dataAPI, setDataAPI] = useState([]);
-
-    const getData = async () => {
-        try {
-            const response = await fetch("http://localhost:8000/api/databarang");
-            const json = await response.json();
-            setDataAPI(json.barang);
-        } catch(error) {
-            alert(error);
-        }
-    }
-
-    useEffect(() => {
-        getData();
-    }, []);
+    const dataAPI = AmbilData();
 
     return (
         <div className="body">
             <div className="search_bar">
-            <div class="ui icon input">
+            <div className="ui icon input">
             <input type="text" placeholder="Search..."/>
-            <i class="search icon"></i>
+            <i className="search icon"></i>
             </div>
             </div>
             
             <div className="content">   
-                <table class="ui celled table">
+                <table className="ui celled table">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -44,19 +31,17 @@ export default function TableTinknet() {
                         </tr>
                     </thead>
                     <tbody>
-                        { dataAPI.map((val, key) => {
-                            return (
-                                <tr key={key}>
-                                    <td data-label="id">{val.id_barang}</td>
-                                    <td data-label="nama_perangkat">{val.nama_perangkat}</td>
-                                    <td data-label="jenis">{val.jenis}</td>
-                                    <td data-label="jumlah">{val.jumlah}</td>
-                                    <td data-label="status">{val.status}</td>
-                                    <td data-label="kondisi">{val.kondisi}</td>
-                                    <td data-label="lokasi">{val.lokasi}</td>
-                                </tr>
-                            )
-                        })}
+                        { dataAPI.map((val, key) => (
+                            <tr key={key}>
+                                <td data-label="id">{val.id_barang}</td>
+                                <td data-label="nama_perangkat">{val.nama_perangkat}</td>
+                                <td data-label="jenis">{val.jenis}</td>
+                                <td data-label="jumlah">{val.jumlah}</td>
+                                <td data-label="status">{val.status}</td>
+                                <td data-label="kondisi">{val.kondisi}</td>
+                                <td data-label="lokasi">{val.lokasi}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
