@@ -4,6 +4,7 @@ import { useState } from "react";
 import SideBarAdminBarang from "../../components/homeComp/SidebarAdminBarang";
 import TopBar from "../../components/homeComp/topbar";
 import DesicionRole from "../../components/roleTinknet";
+import axios from "axios";
 import "../../components/semantic-UI/button.css"
 
 export default function AddInventory() {
@@ -19,10 +20,20 @@ export default function AddInventory() {
     data.preventDefault();
     const getData = async () => {
       try {
-          const response = await fetch("http://localhost:8000/api/databarang/store?nama_perangkat="+namaPerangkat+"&jenis="+jenis+"&jumlah="+jumlah+"&status="+status+"&kondisi="+kondisi+"&lokasi="+lokasi);
-          const json = await response.json();
-          localStorage.setItem("msg", json.msg);
-          window.location.replace("/home");
+          await axios.post("http://localhost:8000/api/databarang/store",{
+            nama_perangkat: namaPerangkat,
+            jenis: jenis,
+            jumlah: jumlah,
+            status: status,
+            kondisi: kondisi,
+            lokasi: lokasi
+          })
+          .then(
+            function (response) {
+              localStorage.setItem("msg", response.data.msg);
+              window.location.replace("/dataconfirmed");
+            }
+          );
       } catch(error) {
           alert(error);
       }

@@ -10,18 +10,8 @@ import "./home.css";
 export default function Home() {
     const dataRole = DesicionRole();
 
-    const dataConfirm = () => {
-        window.confirm(localStorage.getItem("msg"));
-        localStorage.removeItem("msg")
-    }
-
     return (
         <body>
-            {
-                (localStorage.getItem("msg"))?
-                dataConfirm():
-                localStorage.removeItem("msg")
-            }
             <div className="top">
                 <TopBar/>
                     {

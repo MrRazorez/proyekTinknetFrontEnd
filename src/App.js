@@ -6,6 +6,7 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import LoginFailed from "./components/failed";
 import LoginEmpty from "./components/confirmation";
+import MessageConfirm from "./components/confirmData";
 import AddInventory from "./pages/crud/TambahBarang";
 import ListInventory from "./pages/crud/ListEditBarang";
 import EditInventory from "./pages/crud/UpdateBarang";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/addbarang" element={<AddInventory/>} />
         <Route path="/listeditbarang" element={<ListInventory/>} />
         <Route path="/editbarang/:id" element={<EditInventory/>} />
+        <Route path="/dataconfirmed" element={<MessageConfirm/>} />
       </Routes>
     </BrowserRouter>
   );

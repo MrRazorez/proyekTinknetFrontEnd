@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 export default function LoginEmpty() {
     const backTo = () => {
         localStorage.clear();
-        window.location.replace("login");
+        window.location.replace("/login");
     }
 
     const [hitung, setHitung] = useState(0);
