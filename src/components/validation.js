@@ -14,7 +14,7 @@ export default function ValidAccount(username, password) {
                 }
             );
         } catch(error) {
-            alert(error);
+            console.log(error);
         }
     }
 

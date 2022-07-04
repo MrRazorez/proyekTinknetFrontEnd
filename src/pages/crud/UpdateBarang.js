@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 import "./TambahBarang.css";
 import React from "react";
 import { useState, useEffect } from "react";
@@ -29,12 +28,13 @@ export default function EditInventory() {
       setKondisi(response.data.kondisi);
       setLokasi(response.data.lokasi);
     } catch(error) {
-      alert(error)
+      console.log(error)
     }
   }
 
   useEffect(() => {
     settingNama();
+    // eslint-disable-next-line
   }, []);
 
   const runValid = async (data) => {
