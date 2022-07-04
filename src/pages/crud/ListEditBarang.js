@@ -17,9 +17,11 @@ export default function TableTinknet() {
     const dataAPI = AmbilData();
 
     const hapusData = async (myID) => {
-        const response = await axios.get("http://localhost:8000/api/databarang/delete/"+myID);
-        localStorage.setItem("msg", response.data.msg);
-        window.location.replace("/dataconfirmed");
+        if (myID > 0) {
+            const response = await axios.get("http://localhost:8000/api/databarang/delete/"+myID);
+            localStorage.setItem("msg", response.data.msg);
+            window.location.replace("/dataconfirmed");
+        }
     }
 
     return (
@@ -63,9 +65,9 @@ export default function TableTinknet() {
                                             <td data-label="lokasi">{val.lokasi}</td>
                                             <td>
                                                 <div className="ui buttons">
-                                                    <Link to={"/editbarang/"+val.id_barang} className="ui positive button">Edit</Link>
+                                                    <Link to={(val.id_barang > 0)? "/editbarang/"+val.id_barang : ""} className={(val.id_barang > 0)? "ui positive button" : "ui button"}>Edit</Link>
                                                     <div className="or"></div>
-                                                    <button onClick={() => hapusData(val.id_barang)}className="ui negative button">Delete</button>
+                                                    <button onClick={() => hapusData(val.id_barang)}className={(val.id_barang > 0)? "ui negative button" : "ui button"}>Delete</button>
                                                 </div>
                                             </td>
                                         </tr>
