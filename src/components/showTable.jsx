@@ -1,22 +1,32 @@
 import "../components/semantic-UI/table.css";
 import "./semantic-UI/icon.css"
+import "./semantic-UI/grid.css"
+import "./semantic-UI/button.css"
 import "./semantic-UI/input.css"
 import "./showTable.css"
 
 import AmbilData from "./fetchData";
-
+import IconCari from "./logo/loupe.png"
 export default function TableTinknet() {
     const dataAPI = AmbilData();
 
     return (
         <div className="body">
-            <div className="search_bar">
-            <div className="ui icon input">
-            <input type="text" placeholder="Search..."/>
-            <i className="search icon"></i>
+            <div className="ui equal width grid">
+                <div className="column">
+                    <div className="export_button">
+                        <button class="ui primary button">Export csv</button>
+                    </div>                    
+                </div>
+                <div className="column">
+                    <div className="search_bar">
+                        <div class="ui action input">
+                        <input type="text" placeholder="Cari..."/>
+                        <button class="ui button"><img src={IconCari} alt="" className="icon-cari" /></button>
+                        </div>
+                    </div>                                
+                </div>                
             </div>
-            </div>
-            
             <div className="content">   
                 <table className="ui celled table">
                     <thead>

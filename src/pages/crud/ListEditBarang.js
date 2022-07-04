@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import DesicionRole from "../../components/roleTinknet";
 import axios from "axios";
 import "../../components/semantic-UI/button.css"
-
+import IconCari from "../../components/logo/loupe.png"
 import AmbilData from "../../components/fetchData";
 
 
@@ -33,11 +33,11 @@ export default function TableTinknet() {
                     <div className="side">
                         <SideBarAdminBarang/>
                         <div className="pages">
-                        <div className="search_bar">
-                        <div className="ui icon input">
-                        <input type="text" placeholder="Search..."/>
-                        <i className="search icon"></i>
-                        </div>
+                        <div className="search_bar_list">
+                            <div class="ui action input">
+                            <input type="text" placeholder="Cari..."/>
+                            <button class="ui button"><img src={IconCari} alt="" className="icon-cari" /></button>
+                            </div>
                         </div>
                         <div className="content">   
                             <table className="ui celled table">
