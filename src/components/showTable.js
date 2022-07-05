@@ -15,7 +15,7 @@ export default function TableTinknet() {
             <div className="ui equal width grid">
                 <div className="column">
                     <div className="export_button">
-                        <button onClick={() => (window.location.href = "http://localhost:8000/api/dataexport")} class="ui primary button">Export to Excel</button>
+                        <button onClick={() => (window.location.href = "http://localhost:8000/api/dataexport")} class="ui primary button">Unduh</button>
                     </div>                    
                 </div>
                 <div className="column">
