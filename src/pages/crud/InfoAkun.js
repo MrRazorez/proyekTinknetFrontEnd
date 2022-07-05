@@ -1,13 +1,15 @@
 import "./InfoAkun.css";
 import React from "react";
 import { useState } from "react";
+import SidebarAdminBarang from "../../components/homeComp/SidebarAdminBarang";
 import SidebarAdminRegister from "../../components/homeComp/SidebarAdminRegister";
+import SidebarStaff from "../../components/homeComp/SidebarStaff";
 import TopBar from "../../components/homeComp/topbar";
 import DesicionRole from "../../components/roleTinknet";
 import axios from "axios";
 import "../../components/semantic-UI/button.css"
 
-export default function AddStaff() {
+export default function AccInfo() {
   const dataRole = DesicionRole();
   const [namaPerangkat, setNamaPerangkat] = useState("");
   const [jenis, setJenis] = useState("");
@@ -35,7 +37,7 @@ export default function AddStaff() {
             }
           );
       } catch(error) {
-          alert(error);
+          console.log(error);
       }
     }
 
@@ -46,17 +48,21 @@ export default function AddStaff() {
     <body>
       <div className="top">
           <TopBar/>
-          {
-            (localStorage.getItem("token") === dataRole[1]["token"])?
           <div className="side">
-              <SidebarAdminRegister/>
+              {
+                (localStorage.getItem("token") === dataRole[1]["token"])?
+                <SidebarAdminBarang/>:
+                (localStorage.getItem("token") === dataRole[2]["token"])?
+                <SidebarAdminRegister/>:
+                <SidebarStaff/>
+              }
               <div className="pages">
                   <div className="newStaff">
-                  <h1 className="newStaffTitle">Tambah Staff</h1>
+                  <h1 className="newStaffTitle">Ganti Nama Akun dan Kata Sandi</h1>
                   <form onSubmit={runValid}>
                       <div className="newStaffForm">
                       <div className="newStaffItem">
-                      <label>Username Staff</label>
+                      <label>Nama Akun</label>
                       <input
                         type="text"
                         placeholder="..."
@@ -65,7 +71,7 @@ export default function AddStaff() {
                       />
                       </div>
                       <div className="newStaffItem">
-                      <label>Password</label>
+                      <label>Kata Sandi</label>
                       <input
                         type="password"
                         placeholder="..."
@@ -74,16 +80,14 @@ export default function AddStaff() {
                       />
                       </div>
                       <div className="newStaffButton">
-                      <button className="ui fluid large submit black button">Sunting Username dan Password</button>
+                      <button className="ui fluid large submit black button">Sunting</button>
                       </div>                      
                       </div>
                       
                   </form>
                   </div>
               </div>
-          </div>:
-          window.location.replace("/home")
-          }
+          </div>
       </div>
     </body>
   );

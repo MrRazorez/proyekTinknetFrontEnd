@@ -18,9 +18,9 @@ export default function TableTinknet() {
 
     const hapusData = async (myID) => {
         if (myID > 0) {
-            const response = await axios.get("http://localhost:8000/api/databarang/delete/"+myID);
+            /**const response = await axios.get("http://localhost:8000/api/databarang/delete/"+myID);
             localStorage.setItem("msg", response.data.msg);
-            window.location.replace("/dataconfirmed");
+            window.location.replace("/dataconfirmed");*/
         }
     }
 
@@ -29,7 +29,7 @@ export default function TableTinknet() {
                 <div className="top">
                     <TopBar/>
                     {
-                        (localStorage.getItem("token") === dataRole[1]["token"])?
+                        (localStorage.getItem("token") === dataRole[2]["token"])?
                     <div className="side">
                         <SidebarAdminRegister/>
                         <div className="pages">
@@ -44,18 +44,20 @@ export default function TableTinknet() {
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Username</th>
+                                        <th>Nama Akun</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     { dataAPI.map((val, key) => (
                                         <tr key={key}>
-                                            <td data-label="id">{val.id_barang}</td>                                
+                                            <td data-label="id">{val.id_barang}</td>
+                                            <td data-label="id">{val.id_barang}</td>
                                             <td>
                                                 <div className="ui buttons">
                                                     <Link to={(val.id_barang > 0)? "/resetpassword/"+val.id_barang : ""} className={(val.id_barang > 0)? "ui positive button" : "ui button"}>Reset Password</Link>
                                                     <div className="or"></div>
-                                                    <button onClick={() => hapusData(val.id_barang)}className={(val.id_barang > 0)? "ui negative button" : "ui button"}>Delete</button>
+                                                    <button onClick={() => hapusData(val.id_barang)} className={(val.id_barang > 0)? "ui negative button" : "ui button"}>Delete</button>
                                                 </div>
                                             </td>
                                         </tr>

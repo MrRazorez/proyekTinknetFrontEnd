@@ -8,7 +8,7 @@ import PowerOut from "..//../components/logo/power-off.png";
 
 import Logout from "../logout";
 
-export default function sidebar() {
+export default function SidebarAdminBarang() {
   const rumah = () => {
     window.location.replace("/home")
   }
@@ -19,6 +19,10 @@ export default function sidebar() {
 
   const barangEdit = () => {
     window.location.replace("/listeditbarang")
+  }
+
+  const infoAcc = () => {
+    window.location.replace("/infoakun")
   }
 
   return (
@@ -50,7 +54,7 @@ export default function sidebar() {
           <div className="sidebarMenu">
             <h3 className="sidebarTitle">Akun</h3>
             <ul className="sidebarList">
-              <li className="sidebarListItem">
+              <li onClick={infoAcc} className="sidebarListItem">
               <img src={AccountInfo} alt="" className="sidebarIcon" />
                 Akun
               </li>

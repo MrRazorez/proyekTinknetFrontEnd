@@ -35,7 +35,7 @@ export default function AddStaff() {
             }
           );
       } catch(error) {
-          alert(error);
+          console.log(error);
       }
     }
 
@@ -47,7 +47,7 @@ export default function AddStaff() {
       <div className="top">
           <TopBar/>
           {
-            (localStorage.getItem("token") === dataRole[1]["token"])?
+            (localStorage.getItem("token") === dataRole[2]["token"])?
           <div className="side">
               <SidebarAdminRegister/>
               <div className="pages">

@@ -8,9 +8,21 @@ import PowerOut from "..//../components/logo/power-off.png";
 
 import Logout from "../logout";
 
-export default function sidebar() {
+export default function SidebarAdminRegister() {
   const rumah = () => {
     window.location.replace("/home")
+  }
+
+  const staffAdd = () => {
+    window.location.replace("/addstaff")
+  }
+
+  const staffEdit = () => {
+    window.location.replace("/listeditstaff")
+  }
+
+  const infoAcc = () => {
+    window.location.replace("/infoakun")
   }
   
   return (
@@ -29,11 +41,11 @@ export default function sidebar() {
             <div className="sidebarMenu">
             <h3 className="sidebarTitle">Kelola Staff</h3>
             <ul className="sidebarList">
-                <li className="sidebarListItem">
+                <li onClick={staffAdd} className="sidebarListItem">
                 <img src={AddStaff} alt="" className="sidebarIcon" />
                   Tambah
                 </li>
-                <li className="sidebarListItem">
+                <li onClick={staffEdit} className="sidebarListItem">
                 <img src={EditStaff} alt="" className="sidebarIcon" />
                   Sunting
                 </li>             
@@ -42,7 +54,7 @@ export default function sidebar() {
           <div className="sidebarMenu">
             <h3 className="sidebarTitle">Akun</h3>
             <ul className="sidebarList">
-              <li className="sidebarListItem">
+              <li onClick={infoAcc} className="sidebarListItem">
               <img src={AccountInfo} alt="" className="sidebarIcon" />
                 Akun
               </li>
