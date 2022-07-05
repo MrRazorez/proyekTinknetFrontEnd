@@ -52,7 +52,7 @@ export default function AddStaff() {
               <SidebarAdminRegister/>
               <div className="pages">
                   <div className="newStaff">
-                  <h1 className="newStaffTitle">Tambah Barang</h1>
+                  <h1 className="newStaffTitle">Tambah Staff</h1>
                   <form onSubmit={runValid}>
                       <div className="newStaffForm">
                       <div className="newStaffItem">
