@@ -12,7 +12,7 @@ export default function TableTinknet() {
 
     return (
         <div className="body">
-            <div className="ui equal width grid">
+            <div className="ui equal width grid" style={{ width:"100%" }}>
                 <div className="column">
                     <div className="export_button">
                         <button onClick={() => (window.location.href = "http://localhost:8000/api/dataexport")} class="ui primary button">Unduh</button>

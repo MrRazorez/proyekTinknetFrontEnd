@@ -1,4 +1,4 @@
-.newStaff {
+.account {
     flex: 4;
     display: flex;
     flex-direction: column;
@@ -7,18 +7,17 @@
     justify-items: center;
 }
 
-.newStaffForm {
+.accountForm {
+  margin-top: 15%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;
-    justify-content: center;
     align-items: center;
     justify-content: center;
     justify-items: center;    
 }
   
-  .newStaffItem {
+  .accountItem {
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -26,28 +25,29 @@
     margin-right: 20px;
   }
   
-  .newStaffItem > label {
+  .accountItem > label {
     margin-bottom: 10px;
     font-size: 14px;
     font-weight: 600;
     color: black;
   }
   
-  .newStaffItem > input {
+  .accountItem > input {
     height: 20px;
     padding: 10px;
     border: 1px solid gray;
     border-radius: 5px;
   }
   
-  .newStaffButton{
-      width: 300px;
+  .accountButton{
+      width: 400px;
       border: none;
       padding: 7px 10px;
       font-weight: 600;
       border-radius: 5px;
-      margin-top: 30px;
+      margin-top: 10%;
       cursor: pointer;
       margin-bottom: 20px;
-      margin-left: 35%;
+      margin-right: 5%;
+
 }

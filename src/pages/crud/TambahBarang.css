@@ -37,6 +37,7 @@
   }
   
   .newInventoryButton{
+    display: flex;
       width: 300px;
       border: none;
       padding: 7px 10px;

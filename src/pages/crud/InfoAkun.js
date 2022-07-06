@@ -57,11 +57,11 @@ export default function AccInfo() {
                 <SidebarStaff/>
               }
               <div className="pages">
-                  <div className="newStaff">
-                  <h1 className="newStaffTitle">Ganti Nama Akun dan Kata Sandi</h1>
+                  <div className="account">
+                  <h1 className="accountTitle">Ganti Nama Akun dan Kata Sandi</h1>
                   <form onSubmit={runValid}>
-                      <div className="newStaffForm">
-                      <div className="newStaffItem">
+                      <div className="accountForm">
+                      <div className="accountItem">
                       <label>Nama Akun</label>
                       <input
                         type="text"
@@ -70,7 +70,7 @@ export default function AccInfo() {
                         onChange={(data => setNamaPerangkat(data.target.value))}
                       />
                       </div>
-                      <div className="newStaffItem">
+                      <div className="accountItem">
                       <label>Kata Sandi</label>
                       <input
                         type="password"
@@ -79,7 +79,7 @@ export default function AccInfo() {
                         onChange={(data => setNamaPerangkat(data.target.value))}
                       />
                       </div>
-                      <div className="newStaffButton">
+                      <div className="accountButton">
                       <button className="ui fluid large submit black button">Sunting</button>
                       </div>                      
                       </div>
