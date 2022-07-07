@@ -59,15 +59,16 @@ export default function AddStaff() {
                       <label>Username</label>
                       <input
                         type="text"
-                        placeholder="Masukkan Nama Perangkat..."
+                        placeholder="Masukkan Username..."
                         value={ namaPerangkat }
                         onChange={(data => setNamaPerangkat(data.target.value))}
                       />
-                      </div>
+                      </div>        
                       <div className="newStaffButton">
                       <button className="ui fluid large submit black button">Tambah</button>
+                      </div>    
                       </div>
-                      </div>                      
+                                         
                   </form>
                   </div>
               </div>
