@@ -14,6 +14,7 @@ import IconCari from "../../components/logo/loupe.png"
 export default function TableTinknet() {
     const dataRole = DesicionRole();
     const [dataAPI, setDataAPI] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
 
     const getData = async () => {
         try {
@@ -61,7 +62,11 @@ export default function TableTinknet() {
                         <div className="pages">
                         <div className="search_bar_list">
                             <div class="ui action input">
-                            <input type="text" placeholder="Cari..."/>
+                            <input onChange={
+                            (event) => {
+                                setSearchTerm(event.target.value);
+                            }
+                        } type="text" placeholder="Cari..."/>
                             <button class="ui button"><img src={IconCari} alt="" className="icon-cari" /></button>
                             </div>
                         </div>
@@ -75,7 +80,16 @@ export default function TableTinknet() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    { dataAPI.map((val, key) => (
+                                    { dataAPI.filter(
+                                        // eslint-disable-next-line
+                                        (val) => {
+                                            if (searchTerm === "") {
+                                                return val;
+                                            } else if (val.username.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                                return val;
+                                            }
+                                        }
+                                    ).map((val, key) => (
                                         <tr key={key}>
                                             <td data-label="id">{val.id}</td>
                                             <td data-label="id">{val.username}</td>
