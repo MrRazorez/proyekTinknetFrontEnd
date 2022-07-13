@@ -7,8 +7,11 @@ import "./showTable.css"
 
 import AmbilData from "./fetchData";
 import IconCari from "./logo/loupe.png"
+import { useState } from "react";
+
 export default function TableTinknet() {
     const dataAPI = AmbilData();
+    const [searchTerm, setSearchTerm] = useState("");
 
     return (
         <div className="body">
@@ -21,7 +24,11 @@ export default function TableTinknet() {
                 <div className="column">
                     <div className="search_bar">
                         <div class="ui action input">
-                        <input type="text" placeholder="Cari..."/>
+                        <input onChange={
+                            (event) => {
+                                setSearchTerm(event.target.value);
+                            }
+                        } type="text" placeholder="Cari..."/>
                         <button class="ui button"><img src={IconCari} alt="" className="icon-cari" /></button>
                         </div>
                     </div>                                
@@ -41,7 +48,15 @@ export default function TableTinknet() {
                         </tr>
                     </thead>
                     <tbody>
-                        { dataAPI.map((val, key) => (
+                        { dataAPI.filter(
+                            (val) => {
+                                if (searchTerm == "") {
+                                    return val;
+                                } else if (val.nama_perangkat.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                    return val;
+                                }
+                            }
+                        ).map((val, key) => (
                             <tr key={key}>
                                 <td data-label="id">{val.id_barang}</td>
                                 <td data-label="nama_perangkat">{val.nama_perangkat}</td>

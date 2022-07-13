@@ -1,5 +1,5 @@
 import "./InfoAkun.css";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import SidebarAdminBarang from "../../components/homeComp/SidebarAdminBarang";
 import SidebarAdminRegister from "../../components/homeComp/SidebarAdminRegister";
@@ -11,24 +11,33 @@ import "../../components/semantic-UI/button.css"
 
 export default function AccInfo() {
   const dataRole = DesicionRole();
-  const [namaPerangkat, setNamaPerangkat] = useState("");
-  const [jenis, setJenis] = useState("");
-  const [jumlah, setJumlah] = useState("");
-  const [status, setStatus] = useState("");
-  const [kondisi, setKondisi] = useState("");
-  const [lokasi, setLokasi] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const id = localStorage.getItem("acc");
+
+  const settingNama = async () => {
+    try {
+      const response = await axios.get("http://localhost:8000/api/usertinknet/show/"+id);
+      setUsername(response.data.username);
+      setPassword(response.data.password);
+    } catch(error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    settingNama();
+    // eslint-disable-next-line
+  }, []);
 
   const runValid = async (data) => {
     data.preventDefault();
     const getData = async () => {
       try {
-          await axios.post("http://localhost:8000/api/databarang/store",{
-            nama_perangkat: namaPerangkat,
-            jenis: jenis,
-            jumlah: jumlah,
-            status: status,
-            kondisi: kondisi,
-            lokasi: lokasi
+          await axios.post("http://localhost:8000/api/usertinknet/update/"+id,{
+            username: username,
+            password: password
           })
           .then(
             function (response) {
@@ -65,18 +74,18 @@ export default function AccInfo() {
                       <label>Nama Akun</label>
                       <input
                         type="text"
-                        placeholder="..."
-                        value={ namaPerangkat }
-                        onChange={(data => setNamaPerangkat(data.target.value))}
+                        placeholder="Nama Akun"
+                        value={ username }
+                        onChange={(data => setUsername(data.target.value))}
                       />
                       </div>
                       <div className="accountItem">
                       <label>Kata Sandi</label>
                       <input
                         type="password"
-                        placeholder="..."
-                        value={ namaPerangkat }
-                        onChange={(data => setNamaPerangkat(data.target.value))}
+                        placeholder="Kata Sandi"
+                        value={ password }
+                        onChange={(data => setPassword(data.target.value))}
                       />
                       </div>
                       <div className="accountButton">

@@ -9,24 +9,14 @@ import "../../components/semantic-UI/button.css"
 
 export default function AddStaff() {
   const dataRole = DesicionRole();
-  const [namaPerangkat, setNamaPerangkat] = useState("");
-  const [jenis, setJenis] = useState("");
-  const [jumlah, setJumlah] = useState("");
-  const [status, setStatus] = useState("");
-  const [kondisi, setKondisi] = useState("");
-  const [lokasi, setLokasi] = useState("");
+  const [username, setUsername] = useState("");
 
   const runValid = async (data) => {
     data.preventDefault();
     const getData = async () => {
       try {
-          await axios.post("http://localhost:8000/api/databarang/store",{
-            nama_perangkat: namaPerangkat,
-            jenis: jenis,
-            jumlah: jumlah,
-            status: status,
-            kondisi: kondisi,
-            lokasi: lokasi
+          await axios.post("http://localhost:8000/api/usertinknet/store",{
+            username: username
           })
           .then(
             function (response) {
@@ -56,12 +46,12 @@ export default function AddStaff() {
                   <form onSubmit={runValid}>
                       <div className="newStaffForm">
                       <div className="newStaffItem">
-                      <label>Username</label>
+                      <label>Nama Akun</label>
                       <input
                         type="text"
-                        placeholder="Masukkan Username..."
-                        value={ namaPerangkat }
-                        onChange={(data => setNamaPerangkat(data.target.value))}
+                        placeholder="Masukkan Nama Akun..."
+                        value={ username }
+                        onChange={(data => setUsername(data.target.value))}
                       />
                       </div>        
                       <div className="newStaffButton">

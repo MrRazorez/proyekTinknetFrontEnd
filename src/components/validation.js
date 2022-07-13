@@ -9,6 +9,7 @@ export default function ValidAccount(username, password) {
             })
             .then(
                 function (response) {
+                    localStorage.setItem("acc", response.data.acc);
                     localStorage.setItem("token", response.data.token);
                     window.location.replace("/home");
                 }

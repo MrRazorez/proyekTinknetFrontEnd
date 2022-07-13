@@ -4,23 +4,49 @@ import "../../components/semantic-UI/input.css"
 import "./ListEditStaff.css"
 import SidebarAdminRegister from "../../components/homeComp/SidebarAdminRegister";
 import TopBar from "../../components/homeComp/topbar";
-import { Link } from "react-router-dom";
 import DesicionRole from "../../components/roleTinknet";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import "../../components/semantic-UI/button.css"
 import IconCari from "../../components/logo/loupe.png"
-import AmbilData from "../../components/fetchData";
 
 
 export default function TableTinknet() {
     const dataRole = DesicionRole();
-    const dataAPI = AmbilData();
+    const [dataAPI, setDataAPI] = useState([]);
 
+    const getData = async () => {
+        try {
+            const response = await axios.get("http://localhost:8000/api/usertinknet/show");
+            setDataAPI(response.data.akun);
+        } catch(error) {
+            console.log(error);
+            setDataAPI([
+                {
+                    id: "-1",
+                    username: "Server Down"
+                }
+            ]);
+        }
+    }
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const resetData = async (myID) => {
+        if (myID > 0) {
+            const response = await axios.get("http://localhost:8000/api/usertinknet/reset/"+myID);
+            localStorage.setItem("msg", response.data.msg);
+            window.location.replace("/dataconfirmed");
+        }
+    }
+    
     const hapusData = async (myID) => {
         if (myID > 0) {
-            /**const response = await axios.get("http://localhost:8000/api/databarang/delete/"+myID);
+            const response = await axios.get("http://localhost:8000/api/usertinknet/delete/"+myID);
             localStorage.setItem("msg", response.data.msg);
-            window.location.replace("/dataconfirmed");*/
+            window.location.replace("/dataconfirmed");
         }
     }
 
@@ -51,13 +77,13 @@ export default function TableTinknet() {
                                 <tbody>
                                     { dataAPI.map((val, key) => (
                                         <tr key={key}>
-                                            <td data-label="id">{val.id_barang}</td>
-                                            <td data-label="id">{val.id_barang}</td>
+                                            <td data-label="id">{val.id}</td>
+                                            <td data-label="id">{val.username}</td>
                                             <td>
                                                 <div className="ui buttons">
-                                                    <Link to={(val.id_barang > 0)? "/resetpassword/"+val.id_barang : ""} className={(val.id_barang > 0)? "ui positive button" : "ui button"}>Reset Password</Link>
+                                                    <button onClick={() => resetData(val.id)} className={(val.id > 0)? "ui positive button" : "ui button"}>Reset</button>
                                                     <div className="or"></div>
-                                                    <button onClick={() => hapusData(val.id_barang)} className={(val.id_barang > 0)? "ui negative button" : "ui button"}>Delete</button>
+                                                    <button onClick={() => hapusData(val.id)} className={(val.id > 0)? "ui negative button" : "ui button"}>Delete</button>
                                                 </div>
                                             </td>
                                         </tr>

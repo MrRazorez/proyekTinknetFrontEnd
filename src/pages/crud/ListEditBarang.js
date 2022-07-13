@@ -10,11 +10,13 @@ import axios from "axios";
 import "../../components/semantic-UI/button.css"
 import IconCari from "../../components/logo/loupe.png"
 import AmbilData from "../../components/fetchData";
+import { useState } from "react";
 
 
 export default function TableTinknet() {
     const dataRole = DesicionRole();
     const dataAPI = AmbilData();
+    const [searchTerm, setSearchTerm] = useState("");
 
     const hapusData = async (myID) => {
         if (myID > 0) {
@@ -35,7 +37,11 @@ export default function TableTinknet() {
                         <div className="pages">
                         <div className="search_bar_list">
                             <div class="ui action input">
-                            <input type="text" placeholder="Cari..."/>
+                            <input onChange={
+                                (event) => {
+                                    setSearchTerm(event.target.value);
+                                }
+                            } type="text" placeholder="Cari..."/>
                             <button class="ui button"><img src={IconCari} alt="" className="icon-cari" /></button>
                             </div>
                         </div>
@@ -54,7 +60,15 @@ export default function TableTinknet() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    { dataAPI.map((val, key) => (
+                                    { dataAPI.filter(
+                                        (val) => {
+                                            if (searchTerm == "") {
+                                                return val;
+                                            } else if (val.nama_perangkat.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                                return val;
+                                            }
+                                        }
+                                    ).map((val, key) => (
                                         <tr key={key}>
                                             <td data-label="id">{val.id_barang}</td>
                                             <td data-label="nama_perangkat">{val.nama_perangkat}</td>
