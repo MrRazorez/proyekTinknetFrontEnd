@@ -48,3 +48,14 @@
       margin-bottom: 20px;
       margin-left: 35%;
 }
+
+
+@media only screen and (max-width: 700px) {
+.newInventoryForm{
+  margin-left: 10%;
+}
+
+ .newInventoryButton{
+  margin-left: 15%;
+ }
+}
