@@ -36,13 +36,13 @@ export default function TableTinknet() {
                         <SideBarAdminBarang/>
                         <div className="pages">
                         <div className="search_bar_list">
-                            <div class="ui action input">
+                            <div class="ui icon input">
                             <input onChange={
                                 (event) => {
                                     setSearchTerm(event.target.value);
                                 }
                             } type="text" placeholder="Cari..."/>
-                            <button class="ui button"><img src={IconCari} alt="" className="icon-cari" /></button>
+                            <i class="search icon"></i>
                             </div>
                         </div>
                         <div className="content">   
@@ -61,8 +61,9 @@ export default function TableTinknet() {
                                 </thead>
                                 <tbody>
                                     { dataAPI.filter(
+                                         // eslint-disable-next-line
                                         (val) => {
-                                            if (searchTerm == "") {
+                                            if (searchTerm === "") {
                                                 return val;
                                             } else if (val.nama_perangkat.toLowerCase().includes(searchTerm.toLowerCase())) {
                                                 return val;

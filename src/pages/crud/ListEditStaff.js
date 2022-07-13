@@ -61,22 +61,22 @@ export default function TableTinknet() {
                         <SidebarAdminRegister/>
                         <div className="pages">
                         <div className="search_bar_list">
-                            <div class="ui action input">
+                            <div class="ui icon input">
                             <input onChange={
                             (event) => {
                                 setSearchTerm(event.target.value);
                             }
                         } type="text" placeholder="Cari..."/>
-                            <button class="ui button"><img src={IconCari} alt="" className="icon-cari" /></button>
+                            <i class="search icon"></i>
                             </div>
                         </div>
                         <div className="content">   
-                            <table className="ui celled table">
+                            <table className="ui celled padded table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Akun</th>
-                                        <th>Aksi</th>
+                                        <th className="Table_Aksi">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
