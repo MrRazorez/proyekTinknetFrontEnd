@@ -6,7 +6,6 @@ import "./semantic-UI/input.css"
 import "./showTable.css"
 
 import AmbilData from "./fetchData";
-import IconCari from "./logo/loupe.png"
 import { useState } from "react";
 
 export default function TableTinknet() {

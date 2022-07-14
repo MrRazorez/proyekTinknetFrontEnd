@@ -8,7 +8,6 @@ import DesicionRole from "../../components/roleTinknet";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "../../components/semantic-UI/button.css"
-import IconCari from "../../components/logo/loupe.png"
 
 
 export default function TableTinknet() {

@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import DesicionRole from "../../components/roleTinknet";
 import axios from "axios";
 import "../../components/semantic-UI/button.css"
-import IconCari from "../../components/logo/loupe.png"
 import AmbilData from "../../components/fetchData";
 import { useState } from "react";
 
