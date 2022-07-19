@@ -45,8 +45,10 @@ export default function TableTinknet() {
                             <th>Kondisi</th>
                             <th>Lokasi</th>
                         </tr>
-                    </thead>
-                    <tbody>
+                        
+                    </thead>                    
+                    <tbody>    
+                    
                         { dataAPI.filter(
                             // eslint-disable-next-line
                             (val) => {                                
@@ -68,6 +70,14 @@ export default function TableTinknet() {
                             </tr>
                         ))}
                     </tbody>
+                </table>
+                <table className="ui celled table">
+                    <thead>
+                    <tr>
+                        <th>TOTAL PERANGKAT (Kondisi Bagus)</th>
+                        <th></th>
+                    </tr>
+                    </thead>
                 </table>
             </div>
             
