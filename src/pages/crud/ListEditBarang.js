@@ -6,7 +6,6 @@ import SideBarAdminBarang from "../../components/homeComp/SidebarAdminBarang";
 import TopBar from "../../components/homeComp/topbar";
 import { Link } from "react-router-dom";
 import DesicionRole from "../../components/roleTinknet";
-import axios from "axios";
 import "../../components/semantic-UI/button.css"
 import AmbilData from "../../components/fetchData";
 import { useState } from "react";
@@ -16,14 +15,6 @@ export default function TableTinknet() {
     const dataRole = DesicionRole();
     const dataAPI = AmbilData();
     const [searchTerm, setSearchTerm] = useState("");
-
-    const hapusData = async (myID) => {
-        if (myID > 0) {
-            const response = await axios.get("http://localhost:8000/api/databarang/delete/"+myID);
-            localStorage.setItem("msg", response.data.msg);
-            window.location.replace("/dataconfirmed");
-        }
-    }
 
     return (
         <div className="body">
@@ -59,12 +50,22 @@ export default function TableTinknet() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    { dataAPI.filter(
+                                    { dataAPI[0].filter(
                                          // eslint-disable-next-line
                                         (val) => {
                                             if (searchTerm === "") {
                                                 return val;
                                             } else if (val.nama_perangkat.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                                return val;
+                                            } else if (val.jenis.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                                return val;
+                                            } else if (val.jumlah.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                                return val;
+                                            } else if (val.status.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                                return val;
+                                            } else if (val.kondisi.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                                return val;
+                                            } else if (val.lokasi.toLowerCase().includes(searchTerm.toLowerCase())) {
                                                 return val;
                                             }
                                         }
@@ -79,9 +80,7 @@ export default function TableTinknet() {
                                             <td data-label="lokasi">{val.lokasi}</td>
                                             <td>
                                                 <div className="ui buttons">
-                                                    <Link to={(val.id_barang > 0)? "/editbarang/"+val.id_barang : ""} className={(val.id_barang > 0)? "ui positive button" : "ui button"}>Edit</Link>
-                                                    <div className="or"></div>
-                                                    <button onClick={() => hapusData(val.id_barang)}className={(val.id_barang > 0)? "ui negative button" : "ui button"}>Delete</button>
+                                                    <Link to={(val.id_barang > 0)? "/editbarang/"+val.id_barang : ""} className={(val.id_barang > 0)? "ui positive button" : "ui button"}>Sunting</Link>
                                                 </div>
                                             </td>
                                         </tr>

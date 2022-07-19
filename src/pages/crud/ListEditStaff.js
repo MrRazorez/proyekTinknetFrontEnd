@@ -94,9 +94,8 @@ export default function TableTinknet() {
                                             <td data-label="id">{val.username}</td>
                                             <td>
                                                 <div className="ui buttons">
-                                                    <button onClick={() => resetData(val.id)} className={(val.id > 0)? "ui positive button" : "ui button"}>Reset</button>
-                                                    <div className="or"></div>
-                                                    <button onClick={() => hapusData(val.id)} className={(val.id > 0)? "ui negative button" : "ui button"}>Delete</button>
+                                                    <button onClick={() => resetData(val.id)} className={(val.id > 0)? "ui positive button" : "ui button"}>Pulihkan</button>
+                                                    <button onClick={() => hapusData(val.id)} className={(val.id > 0)? "ui negative button" : "ui button"}>Hapus</button>
                                                 </div>
                                             </td>
                                         </tr>

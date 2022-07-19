@@ -10,6 +10,7 @@ import { useState } from "react";
 
 export default function TableTinknet() {
     const dataAPI = AmbilData();
+    console.log(dataAPI);
     const [searchTerm, setSearchTerm] = useState("");
 
     return (
@@ -49,12 +50,22 @@ export default function TableTinknet() {
                     </thead>                    
                     <tbody>    
                     
-                        { dataAPI.filter(
+                        { dataAPI[0].filter(
                             // eslint-disable-next-line
-                            (val) => {                                
+                            (val) => {
                                 if (searchTerm === "") {
                                     return val;
                                 } else if (val.nama_perangkat.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                    return val;
+                                } else if (val.jenis.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                    return val;
+                                } else if (val.jumlah.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                    return val;
+                                } else if (val.status.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                    return val;
+                                } else if (val.kondisi.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                    return val;
+                                } else if (val.lokasi.toLowerCase().includes(searchTerm.toLowerCase())) {
                                     return val;
                                 }
                             }
@@ -75,7 +86,7 @@ export default function TableTinknet() {
                     <thead>
                     <tr>
                         <th>TOTAL PERANGKAT (Kondisi Bagus)</th>
-                        <th></th>
+                        <th>{dataAPI[1]}</th>
                     </tr>
                     </thead>
                 </table>

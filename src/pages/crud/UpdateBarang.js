@@ -97,7 +97,7 @@ export default function EditInventory() {
                       <div className="newInventoryItem">
                       <label>Jumlah</label>
                       <input
-                        type="text" placeholder="Masukkan Jumlah Perangkat..."
+                        type="number" placeholder="Masukkan Jumlah Perangkat..."
                         value={ jumlah }
                         onChange={(data => setJumlah(data.target.value))}
                       />
@@ -106,19 +106,32 @@ export default function EditInventory() {
                       <label>Status</label>
                       <input
                         type="text"
+                        list="statusData"
                         placeholder="Masukkan Status Perangkat..."
                         value={ status }
                         onChange={(data => setStatus(data.target.value))}
+                        onClick={(data => status? setStatus("") : setStatus(data.target.value))}
                       />
+                      <datalist id="statusData">
+                        <option value="Aktif"/>
+                        <option value="Pasif"/>
+                        <option value="Lain - lain"/>
+                      </datalist>
                       </div>
                       <div className="newInventoryItem">
                       <label>Kondisi</label>
                       <input
                         type="text"
+                        list="kondisiData"
                         placeholder="Masukkan Kondisi Perangkat..."
                         value={ kondisi }
                         onChange={(data => setKondisi(data.target.value))}
+                        onClick={(data => kondisi? setKondisi("") : setKondisi(data.target.value))}
                       />
+                      <datalist id="kondisiData">
+                        <option value="Bagus"/>
+                        <option value="Rusak"/>
+                      </datalist>
                       </div>
                       <div className="newInventoryItem">
                       <label>Lokasi</label>

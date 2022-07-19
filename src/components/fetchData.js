@@ -3,6 +3,7 @@ import axios from "axios";
 
 export default function AmbilData() {
     const [dataAPI, setDataAPI] = useState([]);
+    const [totalAPI, setTotalAPI] = useState([]);
 
     const getData = async () => {
         try {
@@ -24,9 +25,24 @@ export default function AmbilData() {
         }
     }
 
+    const totalData = async () => {
+        try {
+            const response = await axios.get("http://localhost:8000/api/databarang/total");
+            setTotalAPI(response.data.total);
+        } catch(error) {
+            console.log(error);
+            setTotalAPI([
+                {
+                    total: "-1"
+                }
+            ]);
+        }
+    }
+
     useEffect(() => {
         getData();
+        totalData();
     }, []);
 
-    return dataAPI;
+    return [dataAPI, totalAPI];
 }

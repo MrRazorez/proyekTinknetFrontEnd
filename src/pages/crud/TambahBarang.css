@@ -35,6 +35,13 @@
     border: 1px solid gray;
     border-radius: 5px;
   }
+
+  .newInventoryItem > select {
+    height: 20px;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+  }
   
   .newInventoryButton{
     display: flex;
